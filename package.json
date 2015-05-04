@@ -1,0 +1,14 @@
+{
+  "name": "openvpn-api",
+  "version": "1.0.0",
+  "description": "OpenVPN API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "restify": "3.0.2",
+  },
+  "author": "",
+  "license": "ISC"
+}
