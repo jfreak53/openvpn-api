@@ -36,25 +36,26 @@ server.get('/getOnline/:user/:pwd', function ( req, res, next ) {
 				logContent = data.split("\n");
 				// console.log(logContent);
 				// console.log(logContent[2]);
+				// console.log(logContent.length);
 
-				if(logContent[2] == 'ROUTING TABLE') {
-					var i = 4;
-					var end = '';
-					ips = [];
-					while(end != 'GLOBAL STATS') {
-						// console.log(logContent[i]);
+				for(j = 0; j <= logContent.length-1; j++) {
+					if(logContent[j] == 'ROUTING TABLE') {
+						var i = j+2;
+						var end = '';
+						ips = [];
+						while(logContent[i] != 'GLOBAL STATS') {
+							// console.log(logContent[i]);
 
-						if(logContent[i] != 'GLOBAL STATS') {
 							var newCon = logContent[i].split(',');
 							// console.log(newCon);
 							ips.push([newCon[0], newCon[1]]);
-						} else end = logContent[i];
 
-						// console.log(ips);
+							// console.log(ips);
 
-						i++;
-					} //End While
-				} //End GLOBAL STATS If
+							i++;
+						} //End While
+					} //End GLOBAL STATS If
+				} //End For Loop
 
 				res.send(ips);
 				return next();

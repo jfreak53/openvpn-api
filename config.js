@@ -1,6 +1,6 @@
 var config = {}
 
-config.fileName = 'log.txt';
+config.fileName = '/etc/openvpn/openvpn-status.log';
 
 config.userName = 'user';
 config.pwd = 'pass';
